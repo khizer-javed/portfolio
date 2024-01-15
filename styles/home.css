@@ -1,0 +1,72 @@
+.main-text {
+  padding: 30px 173px;
+  background-color: white;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.btn-primary {
+  padding: 10px 20px;
+  background: #1eccc4;
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.btn-primary:hover {
+  background: #21dad1;
+}
+
+.btn-secondary {
+  padding: 10px 20px;
+  background: white;
+  color: #1eccc4;
+  transition: background-color 0.3s ease-in-out;
+}
+.btn-secondary:hover {
+  background: rgb(242, 242, 242);
+}
+
+.heading {
+  padding-top: 100px;
+}
+
+.section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.contact {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.social-media {
+  cursor: pointer;
+  color: #a4a4a4;
+  transition: color 0.3s ease-in-out;
+}
+
+.social-media:hover {
+  color: #bebebe;
+}
+
+.about-us-cards {
+  padding: 80px 50px;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.project {
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}

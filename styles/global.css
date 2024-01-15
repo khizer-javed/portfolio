@@ -1,0 +1,84 @@
+@import "./tailwind.css";
+@import "./home.css";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #f8f8f8;
+  line-height: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 70px;
+  line-height: normal;
+}
+
+h2 {
+  font-size: 50px;
+  line-height: normal;
+}
+
+h3 {
+  font-size: 30px;
+  line-height: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+footer {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+footer img {
+  margin-left: 0.5rem;
+}
+
+footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+code {
+  background: #fafafa;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+.text-primary {
+  color: #1eccc4;
+}
+
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 20px;
+  background-color: #1eccc4;
+  border-radius: 50%;
+  cursor: pointer;
+}
