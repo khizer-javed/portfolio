@@ -61,7 +61,7 @@ export default function Home() {
                       data-aos-delay="100"
                       type="button"
                     >
-                      Contact
+                      Connect
                     </button>
                   </Link>
                   <button
@@ -84,7 +84,7 @@ export default function Home() {
 
         <div className="container">
           <div data-aos="fade-up" data-aos-delay="100">
-            <h2 className="text-center">About Us</h2>
+            <h2 className="text-center">About Me</h2>
           </div>
 
           <div className="section" data-aos="fade-left" data-aos-delay="100">
@@ -180,7 +180,7 @@ export default function Home() {
           </div>
 
           <div data-aos="fade-up" data-aos-delay="100">
-            <h2 className="text-center">Contact Us</h2>
+            <h2 className="text-center">Connect with me</h2>
           </div>
 
           <Element name="contact" className="element">
