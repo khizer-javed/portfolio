@@ -1,11 +1,29 @@
 .main-text {
-  padding: 30px 173px;
+  padding: 30px 140px;
   background-color: white;
 }
 
+@media (min-width: 1536px) {
+  .main-text {
+    padding: 30px 120px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    padding: 30px 120px;
+  }
+}
+
 .container {
-  width: 80%;
+  width: 100%;
   margin: auto;
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1636px;
+  }
 }
 
 .btn-primary {
@@ -17,6 +35,7 @@
   align-items: center;
   gap: 10px;
 }
+
 .btn-primary:hover {
   background: #21dad1;
 }
@@ -27,12 +46,17 @@
   color: #1eccc4;
   transition: background-color 0.3s ease-in-out;
 }
+
 .btn-secondary:hover {
   background: rgb(242, 242, 242);
 }
 
 .heading {
   padding-top: 100px;
+}
+
+.name-heading {
+  font-size: 4vw;
 }
 
 .section {

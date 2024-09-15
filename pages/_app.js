@@ -3,7 +3,6 @@ import "aos/dist/aos.css";
 import Head from "next/head";
 import { useEffect } from "react";
 import {
-  FaArrowUp,
   FaFacebook,
   FaFilePdf,
   FaGithub,
@@ -14,10 +13,10 @@ import { FiSmartphone } from "react-icons/fi";
 import { HiOutlineMail } from "react-icons/hi";
 import { Element, Link } from "react-scroll";
 import Typewriter from "typewriter-effect";
-import CountingComponent from "../components/Cards";
-import "../styles/global.css";
 import BackToTop from "../components/BackToTop";
+import CountingComponent from "../components/Cards";
 import Project from "../components/Project";
+import "../styles/global.css";
 
 export default function Home() {
   useEffect(() => {
@@ -52,7 +51,14 @@ export default function Home() {
                     }}
                   />
                 </h3>
-                <h1 data-aos="fade-right">I'm Khizer Javed Iqbal</h1>
+                <div>
+                  <h1 data-aos="fade-right" className="name-heading">
+                    I'm
+                  </h1>
+                  <h1 data-aos="fade-right" className="name-heading">
+                    Khizer Javed Iqbal
+                  </h1>
+                </div>
                 <div className="w-full flex items-center gap-4">
                   <Link to="contact" smooth={true} duration={500}>
                     <button
