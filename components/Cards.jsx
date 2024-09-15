@@ -14,11 +14,14 @@ const CountingComponent = (props) => {
   }, []);
 
   return (
-    <div className="about-us-cards" {...rest}>
-      <h2 ref={ref} className="text-primary">
+    <div
+      className="border shadow-md hover:shadow-lg rounded-md grid justify-center items-center p-8 min-h-[250px]"
+      {...rest}
+    >
+      <h2 ref={ref} className="text-primary text-center">
         {inView && <CountUp end={number} duration={5} />}
       </h2>
-      <h4>{title}</h4>
+      <h4 className="text-center">{title}</h4>
     </div>
   );
 };
