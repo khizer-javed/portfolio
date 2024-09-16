@@ -1,7 +1,7 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Head from "next/head";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   FaFacebook,
   FaFilePdf,
@@ -9,14 +9,14 @@ import {
   FaLinkedin,
   FaTwitter,
 } from "react-icons/fa";
-import { FiSmartphone } from "react-icons/fi";
-import { HiOutlineMail } from "react-icons/hi";
 import { Element, Link } from "react-scroll";
 import Typewriter from "typewriter-effect";
 import BackToTop from "../components/BackToTop";
 import CountingComponent from "../components/Cards";
 import Project from "../components/Project";
 import "../styles/global.css";
+import { motion } from "framer-motion";
+import { RiSendPlaneLine } from "react-icons/ri";
 
 const LANGUAGES = [
   { label: "Javascript", path: "/skillset/js.png", className: "" },
@@ -120,6 +120,8 @@ const TOOLS = [
 ];
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -168,7 +170,7 @@ export default function Home() {
       <main>
         <Element name="top">
           <div className="h-full w-full grid grid-cols-2">
-            <div className="flex flex-col h-full w-full items-start justify-between main-text">
+            <div className="flex flex-col h-full w-full items-start justify-between bg-white px-8 lg:px-[140px] py-[30px]">
               <h3 data-aos="fade-right">
                 <b>Khizer.</b>
               </h3>
@@ -205,13 +207,15 @@ export default function Home() {
                       Connect
                     </button>
                   </Link>
-                  <button
-                    className="btn-secondary"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                  >
-                    Projects
-                  </button>
+                  <Link to="projects" smooth={true} duration={500}>
+                    <button
+                      className="btn-secondary"
+                      data-aos="fade-up"
+                      data-aos-delay="200"
+                    >
+                      Projects
+                    </button>
+                  </Link>
                 </div>
               </div>
               <p className="w-full text-center"></p>
@@ -223,181 +227,266 @@ export default function Home() {
           </div>
         </Element>
 
-        <div data-aos="fade-up" data-aos-delay="100">
-          <h1 className="text-center section-title">ABOUT ME</h1>
-        </div>
+        <Element name="aboutme">
+          <motion.h1
+            viewport={{ once: true }}
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            className="text-center section-title"
+            transition={{ delay: 0.2, duration: 0.3 }}
+          >
+            ABOUT ME
+          </motion.h1>
 
-        <div className="section" data-aos="fade-left" data-aos-delay="100">
-          <div className="container p-4 sm:p-0">
-            <div className="grid lg:grid-cols-2 gap-8">
-              <div className="grid md:grid-cols-2 gap-4">
-                <CountingComponent
-                  number={5}
-                  title="Happy Clients"
-                  data-aos="fade-right"
-                  data-aos-delay="300"
-                />
+          <div className="section">
+            <div className="my-container px-8 lg:px-[140px]">
+              <div className="grid lg:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <motion.div
+                    viewport={{ once: true }}
+                    initial={{ x: -100, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.3, duration: 0.3 }}
+                  >
+                    <CountingComponent number={5} title="Happy Clients" />
+                  </motion.div>
 
-                <CountingComponent
-                  number={10}
-                  title="Projects Done"
-                  data-aos="fade-right"
-                  data-aos-delay="200"
-                />
+                  <motion.div
+                    viewport={{ once: true }}
+                    initial={{ x: -100, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 0.3 }}
+                  >
+                    <CountingComponent number={10} title="Projects Done" />
+                  </motion.div>
 
-                <CountingComponent
-                  number={1569}
-                  title="Coffees"
-                  data-aos="fade-right"
-                  data-aos-delay="500"
-                />
+                  <motion.div
+                    viewport={{ once: true }}
+                    initial={{ x: -100, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 0.3 }}
+                  >
+                    <CountingComponent number={1569} title="Coffees" />
+                  </motion.div>
 
-                <CountingComponent
-                  number={calculateWorkingHours("03/01/2019")}
-                  title="Working Hours"
-                  data-aos="fade-right"
-                  data-aos-delay="400"
-                />
-              </div>
-              <div className="flex flex-col gap-4 justify-between">
-                <h5 className="text-primary">About Me</h5>
-                <h2>Enterprise Web Applications Specialist.</h2>
-                <p>
-                  With a focus on crafting robust solutions for large-scale
-                  organizations, I am an accomplished Enterprise Web Application
-                  Developer. My expertise lies in developing sophisticated data
-                  management systems, dynamic social media marketing platforms,
-                  and efficient medical appointment applications. Leveraging
-                  extensive experience, I am dedicated to delivering scalable
-                  and innovative solutions that empower enterprises to navigate
-                  and thrive in the ever-evolving digital landscape.
-                </p>
-
-                <div className="flex flex-col gap-4">
-                  <div className="flex items-center justify-between">
-                    <b>Name</b>
-                    <b className="text-primary">Khizer Javed Iqbal</b>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <b>Date of birth</b>
-                    <b className="text-primary">July 24, 1997</b>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <b>Address</b>
-                    <b className="text-primary">Rawalpindi, Pakistan</b>
-                  </div>
+                  <motion.div
+                    viewport={{ once: true }}
+                    initial={{ x: -100, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ delay: 0.4, duration: 0.3 }}
+                  >
+                    <CountingComponent
+                      number={calculateWorkingHours("03/01/2019")}
+                      title="Working Hours"
+                    />
+                  </motion.div>
                 </div>
+                <div className="flex flex-col gap-4 justify-between">
+                  <h5 className="text-primary">About Me</h5>
+                  <h2>Enterprise Web Applications Specialist.</h2>
+                  <p className="text-justify">
+                    With a focus on crafting robust solutions for large-scale
+                    organizations, I am an accomplished Enterprise Web
+                    Application Developer. My expertise lies in developing
+                    sophisticated data management systems, dynamic social media
+                    marketing platforms, and efficient medical appointment
+                    applications. Leveraging extensive experience, I am
+                    dedicated to delivering scalable and innovative solutions
+                    that empower enterprises to navigate and thrive in the
+                    ever-evolving digital landscape.
+                  </p>
 
-                <div>
-                  <button className="btn-primary" onClick={downloadCV}>
-                    <FaFilePdf /> Download CV
-                  </button>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center justify-between">
+                      <b>Name</b>
+                      <b className="text-primary">Khizer Javed Iqbal</b>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <b>Date of birth</b>
+                      <b className="text-primary">July 24, 1997</b>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <b>Address</b>
+                      <b className="text-primary">Rawalpindi, Pakistan</b>
+                    </div>
+                  </div>
+
+                  <div>
+                    <button className="btn-primary" onClick={downloadCV}>
+                      <FaFilePdf /> Download CV
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Element>
 
-        <div data-aos="fade-up" data-aos-delay="100">
-          <h1 className="text-center section-title">SKILL SET</h1>
-        </div>
+        <Element name="skillset" className="element">
+          <motion.h1
+            viewport={{ once: true }}
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            className="text-center section-title"
+            transition={{ delay: 0.2, duration: 0.3 }}
+          >
+            SKILL SET
+          </motion.h1>
 
-        <div className="section" data-aos="fade-right" data-aos-delay="100">
-          <div className="container p-4 sm:p-0">
-            <div className="flex flex-col gap-8">
-              <h3 className="text-center title" data-aos="fade-up">
-                LANGUAGES
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
-                {LANGUAGES.map((row, index) => (
-                  <div
-                    key={row.label}
-                    data-aos="fade-up"
-                    className="flex flex-col gap-3 justify-between items-center overflow-hidden border rounded-lg shadow-md hover:shadow-lg p-4"
-                    data-aos-delay={`${index + 1}00`}
-                  >
-                    <img
-                      src={row.path}
-                      className={`w-[80%] ${row.className}`}
-                    />
-                    <div className="flex justify-center px-2 py-3">
-                      {row.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
+          <div className="section">
+            <div className="my-container px-8 lg:px-[140px]">
+              <div className="flex flex-col gap-8">
+                <motion.h3
+                  viewport={{ once: true }}
+                  className="text-center title"
+                  initial={{ y: 100, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.3 }}
+                >
+                  LANGUAGES
+                </motion.h3>
+                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+                  {LANGUAGES.map((row, index) => (
+                    <motion.div
+                      viewport={{ once: true }}
+                      key={row.label}
+                      initial={{ y: 100, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ delay: (index + 1) / 10, duration: 0.3 }}
+                      className="flex flex-col gap-3 justify-between items-center overflow-hidden border rounded-lg shadow-md hover:shadow-lg p-4"
+                    >
+                      <motion.img
+                        src={row.path}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                        className={`w-[70%] ${row.className}`}
+                      />
+                      <div className="flex justify-center px-2 py-3">
+                        {row.label}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
 
-              <h3 className="text-center title" data-aos="fade-up">
-                TECHNOLOGIES
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
-                {TECHNOLOGIES.map((row, index) => (
-                  <div
-                    key={row.label}
-                    data-aos="fade-up"
-                    className="flex flex-col gap-3 justify-between items-center overflow-hidden border rounded-lg shadow-md hover:shadow-lg p-4"
-                    data-aos-delay={`${index + 1}00`}
-                  >
-                    <img
-                      src={row.path}
-                      className={`w-[80%] ${row.className}`}
-                    />
-                    <div className="flex justify-center">{row.label}</div>
-                  </div>
-                ))}
-              </div>
+                <motion.h3
+                  viewport={{ once: true }}
+                  className="text-center title"
+                  initial={{ y: 100, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.3 }}
+                >
+                  TECHNOLOGIES
+                </motion.h3>
 
-              <h3 className="text-center title" data-aos="fade-up">
-                TOOLS
-              </h3>
-              <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
-                {TOOLS.map((row, index) => (
-                  <div
-                    key={row.label}
-                    data-aos="fade-up"
-                    className="flex flex-col gap-3 justify-between items-center overflow-hidden border rounded-lg shadow-md hover:shadow-lg p-4"
-                    data-aos-delay={`${index + 1}00`}
-                  >
-                    <img
-                      src={row.path}
-                      className={`w-[80%] ${row.className}`}
-                    />
-                    <div className="flex justify-center px-2 py-3">
-                      {row.label}
-                    </div>
-                  </div>
-                ))}
+                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+                  {TECHNOLOGIES.map((row, index) => (
+                    <motion.div
+                      viewport={{ once: true }}
+                      key={row.label}
+                      initial={{ y: 100, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ delay: (index + 1) / 10, duration: 0.3 }}
+                      className="flex flex-col gap-3 justify-between items-center overflow-hidden border rounded-lg shadow-md hover:shadow-lg p-4"
+                    >
+                      <motion.img
+                        src={row.path}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                        className={`w-[70%] ${row.className}`}
+                      />
+                      <div className="flex justify-center">{row.label}</div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.h3
+                  viewport={{ once: true }}
+                  className="text-center title"
+                  initial={{ y: 100, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.2, duration: 0.3 }}
+                >
+                  TOOLS
+                </motion.h3>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+                  {TOOLS.map((row, index) => (
+                    <motion.div
+                      key={row.label}
+                      viewport={{ once: true }}
+                      initial={{ y: 100, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ delay: (index + 1) / 10, duration: 0.3 }}
+                      className="flex flex-col gap-3 justify-between items-center overflow-hidden border rounded-lg shadow-md hover:shadow-lg p-4"
+                    >
+                      <motion.img
+                        src={row.path}
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.3 }}
+                        className={`w-[70%] ${row.className}`}
+                      />
+                      <div className="flex justify-center px-2 py-3">
+                        {row.label}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </Element>
 
-        <div data-aos="fade-up" data-aos-delay="100">
-          <h1 className="text-center section-title">PROJECTS</h1>
-        </div>
+        <Element name="projects" className="element">
+          <motion.h1
+            viewport={{ once: true }}
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            className="text-center section-title"
+            transition={{ delay: 0.2, duration: 0.3 }}
+          >
+            PROJECTS
+          </motion.h1>
 
-        <div className="section" data-aos="fade-right" data-aos-delay="100">
-          <div className="container">
+          <div className="my-container px-8 lg:px-[140px]">
             <div className="grid grid-cols-4 gap-4">
-              <div data-aos="fade-up" data-aos-delay="100">
+              <motion.div
+                viewport={{ once: true }}
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.3 }}
+              >
                 <Project />
-              </div>
-              <div data-aos="fade-up" data-aos-delay="200">
+              </motion.div>
+
+              <motion.div
+                viewport={{ once: true }}
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.3 }}
+              >
                 <Project />
-              </div>
-              <div data-aos="fade-up" data-aos-delay="300">
+              </motion.div>
+
+              <motion.div
+                viewport={{ once: true }}
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.3 }}
+              >
                 <Project />
-              </div>
-              <div data-aos="fade-up" data-aos-delay="400">
+              </motion.div>
+
+              <motion.div
+                viewport={{ once: true }}
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.3 }}
+              >
                 <Project />
-              </div>
+              </motion.div>
             </div>
           </div>
-        </div>
-
-        <div data-aos="fade-up" data-aos-delay="100">
-          <h1 className="text-center section-title">CONNECT WITH ME</h1>
-        </div>
+        </Element>
 
         {/* <div className="box">
           <i className="fas fa-quote-left fa2"></i>
@@ -416,70 +505,160 @@ export default function Home() {
         </div> */}
 
         <Element name="contact" className="element">
-          <div data-aos="fade-right" data-aos-delay="100">
-            <div className="contact">
-              <div className="grid grid-cols-2">
-                <img src="/contact-bg.png" />
-                <div className="flex flex-col gap-8 p-8 items-center justify-center bg-white">
+          <motion.h1
+            viewport={{ once: true }}
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            className="text-center section-title"
+            transition={{ delay: 0.2, duration: 0.3 }}
+          >
+            CONNECT WITH ME
+          </motion.h1>
+
+          <motion.div
+            className="contact"
+            initial={{ opacity: 0 }}
+            viewport={{ once: true }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.3 }}
+          >
+            <div className="my-container px-8 lg:px-[140px]">
+              <div className="grid sm:grid-cols-2 rounded-xl overflow-hidden">
+                <img className="hidden sm:block" src="/contact-bg.png" />
+                <div className="grid grid-cols-2 gap-8 p-8 items-center justify-center bg-white">
                   <div className="flex flex-col gap-2">
-                    <div className="flex items-center gap-2">
-                      <div data-aos="fade-right" data-aos-delay="300">
-                        <FiSmartphone size={20} />
-                      </div>
-                      <p data-aos="fade-left" data-aos-delay="300">
-                        +92 3085290106
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div data-aos="fade-right" data-aos-delay="300">
-                        <HiOutlineMail size={20} />
-                      </div>
-                      <p data-aos="fade-left" data-aos-delay="300">
-                        khizerjaved25@gmail.com
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <div data-aos="fade-right" data-aos-delay="300">
-                        <FaGithub size={20} />
-                      </div>
-                      <p data-aos="fade-left" data-aos-delay="300">
-                        khizerjaved25@gmail.com
-                      </p>
-                    </div>
+                    <label for="firstName">First Name</label>
+                    <input type="text" id="firstName" />
                   </div>
-                  <div className="flex gap-4">
-                    <div data-aos="fade-up" data-aos-delay="300">
-                      <FaFacebook size={30} className="social-media" />
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="400">
-                      <FaLinkedin size={30} className="social-media" />
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="500">
-                      <FaGithub size={30} className="social-media" />
-                    </div>
-                    <div data-aos="fade-up" data-aos-delay="600">
-                      <FaTwitter size={30} className="social-media" />
-                    </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" id="lastName" />
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label for="phone">Phone Number</label>
+                    <input type="number" id="phone" />
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" />
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" />
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label for="companyWebsite">Company Website</label>
+                    <input type="text" id="companyWebsite" />
+                  </div>
+
+                  <div className="flex flex-col gap-2 sm:col-span-2">
+                    <label for="Message">Message</label>
+                    <textarea id="Message" rows={5} />
+                  </div>
+
+                  <div className="flex justify-between sm:col-span-2">
+                    <button className="btn-primary flex items-center gap-2">
+                      <RiSendPlaneLine />
+                      {loading ? "Sending..." : "Send Message"}
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </Element>
       </main>
 
       <BackToTop />
 
-      <footer>
-        {/* <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by <img src="/vercel.svg" alt="Vercel" className="" />
-        </a> */}
-        <p className="w-full text-center">
-          Copyright ©2024 All rights reserved by Khizer Javed Iqbal.
+      <footer className="flex flex-col gap-[48px] items-between bg-white py-[48px] mt-[90px]">
+        <div className="grid grid-cols-4 gap-8 justify-between w-full px-8 lg:px-[140px]">
+          <div className="flex flex-col gap-4">
+            <h5 className="mb-2">Social Media</h5>
+            <div className="flex gap-4">
+              <FaFacebook size={30} className="social-media" />
+              <FaLinkedin size={30} className="social-media" />
+              <FaGithub size={30} className="social-media" />
+              <FaTwitter size={30} className="social-media" />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h5 className="mb-2">Services</h5>
+            <ul className="flex flex-col gap-2">
+              <li>
+                <a className="link">Web Design</a>
+              </li>
+              <li>
+                <a className="link">App Development</a>
+              </li>
+              <li>
+                <a className="link">Cloud Services</a>
+              </li>
+              <li>
+                <a className="link">IT Management</a>
+              </li>
+              <li>
+                <a className="link">Database Design</a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h5 className="mb-2">Useful Links</h5>
+            <ul className="flex flex-col gap-2">
+              <li>
+                <Link
+                  className="link"
+                  to="aboutme"
+                  smooth={true}
+                  duration={500}
+                >
+                  About Me
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="link"
+                  to="skillset"
+                  smooth={true}
+                  duration={500}
+                >
+                  Skill Set
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="link"
+                  to="projects"
+                  smooth={true}
+                  duration={500}
+                >
+                  Projects
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h5 className="mb-2">Contact Me</h5>
+
+            <Link to="contact" smooth={true} duration={500}>
+              <button type="button" className="btn-primary">
+                Connect
+              </button>
+            </Link>
+          </div>
+        </div>
+        <hr className="border-gray-100" />
+        <p className="w-full text-center px-8 lg:px-[140px]">
+          Copyright ©{new Date().getFullYear()} All rights reserved by Khizer
+          Javed Iqbal.
         </p>
       </footer>
     </div>

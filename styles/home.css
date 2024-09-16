@@ -9,20 +9,21 @@
   }
 }
 
-@media (min-width: 1536px) {
-  .container {
-    padding: 30px 120px;
+@media (min-width: 400px) {
+  .main-text {
+    padding: 30px;
   }
 }
 
-.container {
+.my-container {
   width: 100%;
   margin: auto;
 }
 
-@media (min-width: 1536px) {
+@media (min-width: 100px) {
   .container {
-    max-width: 1636px;
+    padding: 0px;
+    max-width: 2000px;
   }
 }
 
@@ -66,6 +67,7 @@
 }
 
 .section-title {
+  font-size: clamp(24px, 12vw, 80px);
   margin: 70px auto;
   color: #1ECCC5;
   font-weight: 900;
@@ -83,7 +85,7 @@
 }
 
 .social-media:hover {
-  color: #bebebe;
+  color: #1eccc4;
 }
 
 .about-us-cards {
