@@ -105,7 +105,7 @@ input[type="email"] {
   border: 2px solid #cccccc72;
   border-radius: 4px;
   font-size: 16px;
-  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
   outline: none;
 }
 
@@ -113,6 +113,5 @@ textarea:focus,
 input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="email"]:focus {
-  border-color: #f7fafc;
-  box-shadow: 0 0 5px rgba(30, 204, 196, 0.5);
+  border-color: #1eccc4;
 }
