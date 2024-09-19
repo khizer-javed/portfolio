@@ -27,6 +27,85 @@
   }
 }
 
+.skill-set {
+  position: relative;
+  background-image: url('/skill-set-bg.jpg');
+}
+
+.skill-set::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.942);
+  z-index: 1;
+}
+
+.skill-set * {
+  position: relative;
+  z-index: 2;
+}
+
+.aboutme {
+  position: relative;
+  background-image: url('/aboutme-bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.aboutme::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.942);
+  z-index: 1;
+}
+
+.aboutme * {
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  position: relative;
+  padding: 20px;
+  display: inline-block;
+}
+
+.title::before,
+.title::after {
+  content: '';
+  position: absolute;
+  border-color: #1eccc4;
+  border-style: dashed;
+}
+
+.title::before {
+  top: 0px;
+  left: 0px;
+  width: 35%;
+  height: 100%;
+  border-radius: 50px 0 0 0;
+  border-top: 8px dashed #1eccc4;
+  border-left: 8px dashed #1eccc4;
+}
+
+.title::after {
+  bottom: 0px;
+  right: 0px;
+  width: 35%;
+  height: 100%;
+  border-radius: 0 0 50px 0;
+  border-bottom: 8px dashed #1eccc4;
+  border-right: 8px dashed #1eccc4;
+}
+
+
 .btn-primary {
   padding: 10px 20px;
   background: #1eccc4;
@@ -34,6 +113,7 @@
   transition: background-color 0.3s ease-in-out;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -57,7 +137,7 @@
 }
 
 .name-heading {
-  font-size: 4vw;
+  font-size: clamp(40px, 4vw, 80px);
 }
 
 .section {
