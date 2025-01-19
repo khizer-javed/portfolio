@@ -54,10 +54,18 @@ export default function App() {
           <div className="flex flex-col gap-4 w-full items-center sm:items-start col-span-2 sm:col-span-1">
             <h5 className="mb-2">Social Media</h5>
             <div className="flex gap-4">
-              <FaFacebook size={30} className="social-media" />
-              <FaLinkedin size={30} className="social-media" />
-              <FaGithub size={30} className="social-media" />
-              <FaTwitter size={30} className="social-media" />
+              {/* <FaFacebook size={30} className="social-media" /> */}
+              <a
+                href="https://www.linkedin.com/in/khizer-javed-iqbal-04411a188/"
+                target="_blank"
+              >
+                <FaLinkedin size={30} className="social-media" />
+              </a>
+              <a href="https://github.com/khizer-javed" target="_blank">
+                <FaGithub size={30} className="social-media" />
+              </a>
+
+              {/* <FaTwitter size={30} className="social-media" /> */}
             </div>
           </div>
 

@@ -40,6 +40,11 @@ const TECHNOLOGIES = [
     path: "/skillset/socketio.png",
     className: "rounded-full",
   },
+  {
+    label: "Websocket",
+    path: "/skillset/websocket.png",
+    className: "rounded-full",
+  },
   { label: "Stripe", path: "/skillset/stripe.png", className: "rounded-full" },
   {
     label: "Open AI Graph API",
@@ -56,6 +61,11 @@ const TECHNOLOGIES = [
   {
     label: "ANT Design",
     path: "/skillset/antdesign.png",
+    className: "rounded-full",
+  },
+  {
+    label: "Elastic search",
+    path: "/skillset/elastic.png",
     className: "rounded-full",
   },
   {

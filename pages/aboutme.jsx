@@ -98,7 +98,6 @@ const AboutMe = () => {
               </motion.div>
             </div>
             <div className="flex flex-col gap-4 justify-between">
-              <h5 className="text-primary">About Me</h5>
               <h2>Enterprise Web Applications Specialist.</h2>
               <p className="text-justify">
                 With a focus on crafting robust solutions for large-scale
@@ -122,7 +121,7 @@ const AboutMe = () => {
                 </div>
                 <div className="flex items-center justify-between">
                   <b>Address</b>
-                  <b className="text-primary">Rawalpindi, Pakistan</b>
+                  <b className="text-primary">Islamabad, Pakistan</b>
                 </div>
               </div>
 

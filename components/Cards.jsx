@@ -8,7 +8,7 @@ const CountingComponent = (props) => {
 
   return (
     <div
-      className="border shadow-md hover:shadow-lg rounded-md grid justify-center items-center p-8 min-h-[250px]"
+      className="border shadow-lg rounded-md grid justify-center items-center p-8 min-h-[250px]"
       {...rest}
     >
       <h2 ref={ref} className="text-primary text-center">
